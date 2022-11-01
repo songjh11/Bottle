@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.board.QnaMapper">
+
+	<select id="getList" parameterType="QnaVO" resultType="QnaVO">
+		SELECT * FROM QNA ORDER BY NUM DESC
+	</select>
+
+	<select id="getDetail" parameterType="QnaVO" resultType="QnaVO">
+		SELECT * FROM QNA WHERE NUM = #{num}
+	</select>
+
+	<insert id="setAdd" parameterType="QnaVO"> 
+		INSERT INTO QNA
+		VALUES (0, #{writer}, #{title}, #{contents}, 0, sysdate(), 0, 0, 0)
+	</insert>
+	
+	<insert id="setFiles">
+		INSERT INTO QNAFILES
+		VALUES (0, #{num}, #{fileName}, #{oriName})
+	</insert> 
+</mapper>
