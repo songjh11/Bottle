@@ -33,7 +33,7 @@
 			      <td colspan="4" style="height: 500px; text-align: center;">${qvo.contents}</td>
 			      <c:forEach items="${qvo.fileVOs}" var="file">
 			      	<tr>
-				      	<td>
+				      	<td colspan="4">
 				      		<img alt="" src="/file/qna/${file.fileName}">
 				      	</td>
 			      	</tr>
