@@ -6,7 +6,7 @@
 <mapper namespace="com.example.demo.board.QnaMapper">
 
 	<select id="getList" parameterType="QnaVO" resultType="QnaVO">
-		SELECT * FROM QNA ORDER BY NUM DESC
+		SELECT * FROM QNA ORDER BY NUM DESC LIMIT #{startRow}, #{lastRow}
 	</select>
 
 	<select id="getDetail" parameterType="QnaVO" resultType="QnaVO">
