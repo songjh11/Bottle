@@ -9,13 +9,14 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
+<script defer src="/js/add.js"></script>
 </head>
 <body>
 <h1>와 글쓰기</h1>
 <img alt="" src="" style="width: 50%">
 <div style="display: flex; align-items: center; flex-direction: column;">
 	<form:form modelAttribute="qnaVO" method="POST" enctype="multipart/form-data">
-			<form action="add" method="post" enctype="multipart/form-data">
+			<form action="add" method="post" enctype="multipart/form-data" id="addFrm">
 				<div class="mb-3">
 					<label for="title" class="form-label">Title</label>
 					<form:input path="title" cssClass="form-control" id="title"/>
@@ -43,7 +44,7 @@
 				
 				<div style="display: flex; width: 100%; justify-content: space-evenly">
 					<div>		
-						<button class="btn btn-outline-secondary">등록</button>
+						<button type="button" id="addBtn" class="btn btn-outline-secondary">등록</button>
 					</div>
 					<div>
 						<a href="./list" class="btn btn-outline-secondary">취소</a>

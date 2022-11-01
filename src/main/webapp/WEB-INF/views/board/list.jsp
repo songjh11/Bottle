@@ -13,9 +13,22 @@
 <img alt="" src="" style="width: 50%">
 <div style="display: flex; flex-direction: column; align-items: center;">
 	<div style="display: flex; width: 50%; justify-content: flex-end;">
-		<div>
-			<a href="./add" class="btn btn-outline-secondary">게시글 작성</a>
-		</div>
+				 	 <div class="dropdown me-1">
+					    <select name="kind" class="form-control" id="kind" value="">
+		                    <option value="title">Title</option>
+		                    <option value="contents">Contents</option>
+		                    <option value="writer">Writer</option>
+		                  </select>
+					  </div>
+					  <div class="btn-group">
+					  	<input type="text" name="search">
+					  </div>
+					  <div>
+					  	<button class="btn btn-outline-secondary">검색</button>
+					  </div>
+					<div>
+					<a href="./add" class="btn btn-outline-secondary">게시글 작성</a>
+				</div>
 	</div>
 	<div style="width: 50%">
 		<table class="table">
