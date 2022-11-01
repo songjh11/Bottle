@@ -3,6 +3,8 @@ package com.example.demo.board;
 import java.sql.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -11,7 +13,9 @@ import lombok.Data;
 public class QnaVO {
 	
 	private Long num;
+	@NotBlank(message="작성자를 입력해주세요")
 	private String writer;
+	@NotBlank
 	private String title;
 	private String contents;
 	private Long hit;

@@ -6,17 +6,14 @@
 */}
 
 let count = 0;
-let titleCheck = false;
-let writerCheck = false;
-let contentsCheck = false;
 
-//title, writer, contents
-let results = [false, false, false];
+//title, writer
+let results = [false, false];
 
 $("#fileAdd").click(function(){
    let file = '<div class="mb-3">';
    file = file+'<label for="contents" class="form-label">File</label>';
-   file = file+'<input type="file" name="files">';
+   file = file+'<input type="file" name="files" class="files">';
    file = file+'<button type="button" class="fileDel">X</button>';
    file = file+'</div>';
    if(count<5){
@@ -38,24 +35,25 @@ $("#fileArea").on("click",".fileDel", function(event){
 });
 
 $("#title").blur(function(){
-    
-    
+    let result = nullcheck($("#title").val(), "#titleResult", "제목 ");
+    results[0] = result;
+})
+
+$("#writer").blur(function(){
+    let result = nullcheck($("#writer").val(), "#writerResult", "작성자 ");
+    results[1] = result;
 })
 
 $("#addBtn").click(function(){
-
-
-    if(titleCheck&&writerCheck&&contentsCheck){
-        $("#idFrm").submit();
+    if(results.includes(false)){
+        alert("필수 정보 입력이 필요합니다");
+    } else {
+        let lastCheck = window.confirm("게시글을 등록하시겠습니까?") 
+        if(lastCheck){
+            $("#addFrm").submit();
+        } else{
+            return;
+        }
+        
     }
 });
-
-function nullcheck(data, dest, kind){
-    if(data==null||data==''){
-        $(dest).text(kind+" 입력은 필수입니다");
-        return false;
-    } else{
-        $(dest).text("");
-        return true;
-    }
-}

@@ -10,13 +10,41 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 <script defer src="/js/add.js"></script>
+<script defer src="/js/util.js"></script>
 </head>
 <body>
 <h1>와 글쓰기</h1>
-<img alt="" src="" style="width: 50%">
+<nav class="navbar navbar-expand-lg bg-light">
+	<div class="container-fluid">
+	  <a class="navbar-brand" href="#">Navbar</a>
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		  <li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="../">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="">My Page</a>
+		  </li>
+		  <li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			  Board
+			</a>
+			<ul class="dropdown-menu">
+			  <li><a class="dropdown-item" href="../qna/list">QnA</a></li>
+			  <li><hr class="dropdown-divider"></li>
+			</ul>
+		  </li>
+		</ul>
+	  </div>
+	</div>
+  </nav>
+
 <div style="display: flex; align-items: center; flex-direction: column;">
-	<form:form modelAttribute="qnaVO" method="POST" enctype="multipart/form-data">
-			<form action="add" method="post" enctype="multipart/form-data" id="addFrm">
+	<form:form modelAttribute="qnaVO" method="POST" enctype="multipart/form-data" id="addFrm">
+			<form action="add" method="POST" enctype="multipart/form-data">
 				<div class="mb-3">
 					<label for="title" class="form-label">Title</label>
 					<form:input path="title" cssClass="form-control" id="title"/>

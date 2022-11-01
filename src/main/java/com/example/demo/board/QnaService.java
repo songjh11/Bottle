@@ -28,6 +28,7 @@ public class QnaService {
 	
 	public List<QnaVO> getList(Pager pager) throws Exception {
 		pager.makeRow();
+		pager.getNum(qnaMapper.getTotalCount(pager));
 		return qnaMapper.getList(pager);
 	}
 	
@@ -43,7 +44,7 @@ public class QnaService {
 		 if(!file.exists()) {
 			 boolean check = file.mkdirs();
 		 } 
-		 
+
 		 for(MultipartFile f: qnaVO.getFiles()) {
 			 if(!f.isEmpty()) {
 				 String fileName = fileManager.saveFiles(f, path);
