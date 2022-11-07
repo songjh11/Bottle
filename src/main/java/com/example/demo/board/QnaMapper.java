@@ -19,4 +19,8 @@ public interface QnaMapper {
 	
 	public Long getTotalCount(Pager pager) throws Exception;
 	
+	public int setHit(QnaVO qnaVO) throws Exception;
+	
+	public QnaFileVO getFileOne(QnaFileVO qnaFileVO) throws Exception;
+	
 }

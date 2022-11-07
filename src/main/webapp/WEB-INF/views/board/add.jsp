@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<%@ taglib prefix="sec"  uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,33 +15,7 @@
 </head>
 <body>
 <h1>와 글쓰기</h1>
-<nav class="navbar navbar-expand-lg bg-light">
-	<div class="container-fluid">
-	  <a class="navbar-brand" href="#">Navbar</a>
-	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		  <li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="../">Home</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="">My Page</a>
-		  </li>
-		  <li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			  Board
-			</a>
-			<ul class="dropdown-menu">
-			  <li><a class="dropdown-item" href="../qna/list">QnA</a></li>
-			  <li><hr class="dropdown-divider"></li>
-			</ul>
-		  </li>
-		</ul>
-	  </div>
-	</div>
-  </nav>
+<c:import url="../template/Header.jsp"></c:import>
 
 <div style="display: flex; align-items: center; flex-direction: column;">
 	<form:form modelAttribute="qnaVO" method="POST" enctype="multipart/form-data" id="addFrm">
@@ -53,9 +28,10 @@
 				</div>
 				<div class="mb-3">
 					<label for="writer" class="form-label">Writer</label>
-					<form:input path="writer" cssClass="form-control" id="writer"/>
-						<form:errors path="writer"></form:errors>
-						 	<div id="writerResult"></div>
+					<sec:authentication property="Principal" var="user"/>
+					<input type="text" readonly id="writer" class="form-control" name="writer" value="${user.id}">
+					
+
 				</div>
 				<div class="mb-3">
 					<label for="contents" class="form-label">Contents</label>

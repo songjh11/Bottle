@@ -17,6 +17,7 @@ public class QnaVO {
 	private String writer;
 	@NotBlank
 	private String title;
+	@NotBlank
 	private String contents;
 	private Long hit;
 	private Date regDate;

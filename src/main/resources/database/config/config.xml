@@ -7,6 +7,8 @@
   	<typeAliases>
 		<typeAlias type="com.example.demo.board.QnaVO" alias="QnaVO"/>  	
 		<typeAlias type="com.example.demo.board.QnaFileVO" alias="QnaFileVO"/>
+		<typeAlias type="com.example.demo.member.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.example.demo.role.RoleVO" alias="RoleVO"/>
   
   		<typeAlias type="com.example.demo.util.Pager" alias="Pager"/>
   	</typeAliases>

@@ -32,13 +32,19 @@
 
 
 	<select id="getDetail" parameterType="QnaVO" resultMap="getDetailResult">
-		SELECT Q.*, QF.fileName, QF.oriName  
+		SELECT Q.*, QF.FILENUM, QF.FILENAME, QF.ORINAME  
 		FROM QNA Q
 		LEFT JOIN
 		QNAFILES QF
 		ON Q.NUM = QF.NUM
 		WHERE Q.NUM = #{num}
 	</select>
+	
+	<update id="setHit" parameterType="QnaVO">
+		UPDATE QNA 
+		SET HIT=HIT+1
+		WHERE NUM=#{num}
+	</update>
 
 	<insert id="setAdd" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="num"> 
 		INSERT INTO QNA
@@ -49,6 +55,11 @@
 		INSERT INTO QNAFILES
 		VALUES (0, #{num}, #{fileName}, #{oriName})
 	</insert> 
+	
+	<select id="getFileOne" parameterType="QnaFileVO" resultType="QnaFileVO">
+		SELECT * FROM QNAFILES
+		WHERE FILENUM = #{fileNum}
+	</select>
 	
 	<resultMap type="QnaVO" id="getDetailResult">
 		<id column="NUM" property="num"/>

@@ -7,6 +7,9 @@
 
 let count = 0;
 
+let titleResult=false;
+let writerResult=false;
+
 //title, writer
 let results = [false, false];
 
@@ -45,7 +48,10 @@ $("#writer").blur(function(){
 })
 
 $("#addBtn").click(function(){
-    if(results.includes(false)){
+    titleResult = nullcheck($("#title").val(), "#titleResult", "제목 ");
+    writerResult = nullcheck($("#writer").val(), "#writerResult", "작성자 ");
+
+    if(!titleResult||!writerResult){
         alert("필수 정보 입력이 필요합니다");
     } else {
         let lastCheck = window.confirm("게시글을 등록하시겠습니까?") 

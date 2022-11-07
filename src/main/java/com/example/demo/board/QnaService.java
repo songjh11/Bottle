@@ -33,7 +33,13 @@ public class QnaService {
 	}
 	
 	public QnaVO getDetail(QnaVO qnaVO) throws Exception{
+		qnaMapper.setHit(qnaVO);
 		return qnaMapper.getDetail(qnaVO);
+	}
+	
+	public QnaFileVO getFileOne(QnaFileVO qnaFileVO) throws Exception{
+		return qnaMapper.getFileOne(qnaFileVO);
+		
 	}
 
 	public int setAdd(QnaVO qnaVO) throws Exception {

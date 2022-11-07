@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>와 디테일</h1>
-<img alt="" src="" style="width: 50%">
+<c:import url="../template/Header.jsp"></c:import>
 <div style="display: flex; align-items: center; flex-direction: column;">
 	<div style="width: 50%">
 		<table class="table">
@@ -30,11 +30,14 @@
 			      <td>${qvo.hit}</td>
 			    </tr>  	
 			    <tr>
-			      <td colspan="4" style="height: 500px; text-align: center;">${qvo.contents}</td>
+			      <td colspan="4" style="height: 200px; text-align: center;">${qvo.contents}</td>
 			      <c:forEach items="${qvo.fileVOs}" var="file">
 			      	<tr>
 				      	<td colspan="4">
-				      		<img alt="" src="/file/qna/${file.fileName}">
+				      		<a href="/fileDown/qna?fileNum=${file.fileNum}">
+					      		<img style="width: 70%;" alt="" src="/file/qna/${file.fileName}">
+				      		</a>
+				      		<h3><a href="/fileDown/qna?fileNum=${file.fileNum}">${file.oriName} Down</a></h3>
 				      	</td>
 			      	</tr>
 			      </c:forEach>

@@ -48,10 +48,11 @@ public class QnaController {
 	
 	@PostMapping("add")
 	public ModelAndView setAdd(ModelAndView mv, @Valid QnaVO qnaVO, BindingResult bindingResult) throws Exception {
-		int result = qnaService.setAdd(qnaVO);
 		if(bindingResult.hasErrors()) {
 			mv.setViewName("board/add");
+			return mv;
 		} else {
+			int result = qnaService.setAdd(qnaVO);
 			mv.addObject("result", result);
 			mv.setViewName("redirect:./list");
 		}

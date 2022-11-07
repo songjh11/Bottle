@@ -7,3 +7,11 @@ function nullcheck(data, dest, kind){
         return true;
     }
 }
+
+function equals(data, data2){
+    if(data==data2){
+        return true;
+    } else{
+        return false;
+    }
+}
